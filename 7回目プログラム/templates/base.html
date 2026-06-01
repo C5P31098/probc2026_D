@@ -16,54 +16,66 @@
 
         /* ヘッダー */
         .top-header {
-            height: 70px;
-            background: #f0f0f0;
-            border-bottom: 1px solid #ccc;
+          height: 70px;
+          background: #f0f0f0;
+          border-bottom: 1px solid #ccc;
         }
 
         .top-header h1 {
-            color: #123d63;
-            font-weight: bold;
-            font-size: 2rem;
-            margin: 0;
+          color: #123d63;
+          font-weight: bold;
+          font-size: 2rem;
+          margin: 0;
         }
 
         /* サイドバー */
         .sidebar {
-            width: 220px;
-            min-height: calc(100vh - 70px);
-            background-color: #0c4b68;
+          width: 220px;
+          background-color: #0c4b68;
         }
 
         .sidebar .nav-link {
-            color: white;
-            padding: 15px 20px;
-            font-size: 1.1rem;
+          color: white;
+          padding: 15px 20px;
+          font-size: 1.1rem;
         }
 
         .sidebar .nav-link:hover {
-            background-color: #156083;
-            color: white;
+          background-color: #156083;
+          color: white;
         }
 
         .sidebar i {
-            margin-right: 10px;
-            font-size: 1.2rem;
+          margin-right: 10px;
+          font-size: 1.2rem;
         }
 
         /* メイン領域 */
         .content {
-            padding: 30px;
+          padding: 30px;
         }
 
         /* テーマカラー */
         .bg-original {
-        background-color: #0c4b68;
+          background-color: #0c4b68;
         }
 
         /* テーマカラー(薄め) */
         .bg-original-thin {
-        background-color: #156083
+          background-color: #156083
+        }
+
+        .bg-footer {
+          font-size: small;
+          background-color: #082f42;
+        }
+
+        .main-area{
+
+        }
+
+        .main-wrapper{
+          min-height: calc(100vh - 70px);
         }
     </style>
     
@@ -74,7 +86,7 @@
 <body>
     {% block header %}
     <header class="top-header d-flex align-items-center px-4">
-      <h1>拾得物管理システム</h1>
+      <a href="/" class="text-decoration-none"><h1>拾得物管理システム</h1></a>
         <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-success">
             <div class="container-fluid">
               {% block pagelogo %}
@@ -110,69 +122,74 @@
     </header>
     {% endblock %}
 
-    {% block sidebar %}
-    <nav class="sidebar bg-original">
+    <div class="d-flex main-wrapper">
+      {% block sidebar %}
+      <nav class="sidebar bg-original">
 
-        <ul class="nav flex-column mt-3">
+          <ul class="nav flex-column mt-3">
 
-            <li class="nav-item">
-                <a class="nav-link" href="reg_user.html">
-                    <i class="bi bi-person-fill"></i>
-                    ユーザ登録
-                </a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="reg_user.html">
+                      <i class="bi bi-person-fill"></i>
+                      ユーザ登録
+                  </a>
+              </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="reg_item.html">
-                    <i class="bi bi-plus-circle-fill"></i>
-                    拾得物登録
-                </a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="reg_item.html">
+                      <i class="bi bi-plus-circle-fill"></i>
+                      拾得物登録
+                  </a>
+              </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="item_list.html">
-                    <i class="bi bi-card-list"></i>
-                    拾得物一覧
-                </a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="item_list.html">
+                      <i class="bi bi-card-list"></i>
+                      拾得物一覧
+                  </a>
+              </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-person-badge-fill"></i>
-                    届け出データ作成
-                </a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">
+                      <i class="bi bi-person-badge-fill"></i>
+                      届け出データ作成
+                  </a>
+              </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="req_item.html">
-                    <i class="bi bi-file-earmark-text-fill"></i>
-                    捜索依頼
-                </a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="req_item.html">
+                      <i class="bi bi-file-earmark-text-fill"></i>
+                      捜索依頼
+                  </a>
+              </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="req_list.html">
-                    <i class="bi bi-person-lines-fill"></i>
-                    捜索依頼一覧
-                </a>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="req_list.html">
+                      <i class="bi bi-person-lines-fill"></i>
+                      捜索依頼一覧
+                  </a>
+              </li>
 
-        </ul>
-    </nav>
-    {% endblock %}
+          </ul>
+      </nav>
+      {% endblock %}
+        
+      <div class="main-area flex-grow-1 d-flex flex-column">
+        <div class="content flex-grow-1">
+        {% block content %}            
+          <h2>メインコンテンツ</h2>
+          <p>ここに画面内容を表示します。</p>
+        {% endblock %}
+        </div>
+
+        {% block footer %}
+          <footer class="bg-footer text-light text-end mt-auto">
+            文教大学 情報学部 情報システム学科 プロジェクト演習BC Dチーム
+          </footer>
+        {% endblock %}
+      </div>
+    </div>
       
-    <main class="content flex-grow-1">
-    {% block content %}            
-    <h2>メインコンテンツ</h2>
-    <p>ここに画面内容を表示します。</p>
-    {% endblock %}
-    </main>
-      
-    {% block footer %}
-    <footer class="fixed-bottom bg-original text-light text-end">
-        <div>文教大学 情報学部 情報システム学科 プロジェクト演習BC Dチーム</div>
-    </footer>
-    {% endblock %}
 
     {% block script %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
