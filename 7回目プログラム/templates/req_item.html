@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}遺失物捜索依頼 - 拾得物管理システム{% endblock %}
+
+{% block content %}
+<main class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="p-4 text-white rounded bg-success mb-4">
+                <h2 class="mb-0"><i class="bi bi-file-earmark-check"></i> 遺失物捜索依頼</h2>
+                <p class="mb-0 mt-2">施設内で失くした物がある場合、以下のフォームから捜索依頼を登録してください。</p>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <form action="/req_item" method="POST">
+                        
+                        <div class="mb-3">
+                            <label for="itemName" class="form-label fw-bold">遺失物名 <span class="badge bg-danger">必須</span></label>
+                            <input type="text" class="form-control" id="itemName" name="item_name" placeholder="例：黒い長財布、学生証" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category" class="form-label fw-bold">カテゴリ <span class="badge bg-danger">必須</span></label>
+                            <select class="form-select" id="category" name="category" required>
+                                <option value="" selected disabled>選択してください</option>
+                                <option value="貴重品">貴重品（財布・スマホ・鍵など）</option>
+                                <option value="文房具">文房具・教科書</option>
+                                <option value="衣類">衣類・バッグ</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lostDate" class="form-label fw-bold">紛失日時（だいたいで可）</label>
+                            <input type="datetime-local" class="form-control" id="lostDate" name="lost_date">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lostLocation" class="form-label fw-bold">紛失場所 <span class="badge bg-danger">必須</span></label>
+                            <input type="text" class="form-control" id="lostLocation" name="lost_location" placeholder="例：3号館2階 3201教室、学食" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label fw-bold">詳細な特徴</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="例：ブランド名、色、キーホルダーの特徴など"></textarea>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="userName" class="form-label fw-bold">氏名 <span class="badge bg-danger">必須</span></label>
+                                <input type="text" class="form-control" id="userName" name="user_name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="userId" class="form-label fw-bold">学籍番号 / 職員番号</label>
+                                <input type="text" class="form-control" id="userId" name="user_id" placeholder="例：1234567">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="contact" class="form-label fw-bold">連絡先（メールアドレスなど） <span class="badge bg-danger">必須</span></label>
+                            <input type="email" class="form-control" id="contact" name="contact" placeholder="例：example@bunkyo.ac.jp" required>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/" class="btn btn-secondary me-md-2">戻る</a>
+                            <button type="submit" class="btn btn-success px-4">依頼する</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}
