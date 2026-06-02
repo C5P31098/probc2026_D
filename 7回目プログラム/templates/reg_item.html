@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>拾得物登録画面</title>
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f5f5f5;
+}
+
+header{
+    background:#ffffff;
+    border-bottom:2px solid #ccc;
+    padding:20px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.container{
+    display:flex;
+    min-height:calc(100vh - 80px);
+}
+
+nav{
+    width:220px;
+    background:#0f4d68;
+    padding-top:20px;
+}
+
+nav ul{
+    list-style:none;
+    padding:0;
+}
+
+nav li{
+    color:white;
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+main{
+    flex:1;
+    padding:30px;
+}
+
+.form-box{
+    background:#86c0ea;
+    padding:30px;
+    border-radius:10px;
+}
+
+.form-box h2{
+    background:#86c0ea;
+    padding:15px;
+    border-radius:8px;
+    margin-top:0;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.item{
+    display:flex;
+    flex-direction:column;
+}
+
+.item label{
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    padding:10px;
+}
+
+textarea{
+    height:80px;
+}
+
+.button-area{
+    text-align:right;
+    margin-top:20px;
+}
+
+button{
+    background:#2f3b52;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    拾得物登録画面
+</header>
+
+<div class="container">
+
+    <nav>
+        <ul>
+            <li>ユーザ登録</li>
+            <li>拾得物登録</li>
+            <li>拾得物一覧</li>
+            <li>届出データ作成</li>
+            <li>捜索依頼</li>
+            <li>捜索依頼一覧</li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="form-box">
+
+            <h2>新しい拾得物の情報を登録する</h2>
+
+            <form>
+
+                <div class="form-grid">
+
+                    <div class="item">
+                        <label>拾得日</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="item">
+                        <label>拾得時間</label>
+                        <input type="time">
+                    </div>
+
+                    <div class="item">
+                        <label>拾得場所</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="item">
+                        <label>落とし物カテゴリ</label>
+                        <select>
+                            <option>財布</option>
+                            <option>スマートフォン</option>
+                            <option>鍵</option>
+                            <option>学生証</option>
+                            <option>その他</option>
+                        </select>
+                    </div>
+
+                    <div class="item">
+                        <label>落とし物名</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="item">
+                        <label>特徴・詳細</label>
+                        <textarea></textarea>
+                    </div>
+
+                    <div class="item">
+                        <label>色</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="item">
+                        <label>画像</label>
+                        <input type="file">
+                    </div>
+
+                </div>
+
+                <div class="button-area">
+                    <button type="submit">登録</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
