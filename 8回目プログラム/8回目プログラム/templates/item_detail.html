@@ -27,20 +27,23 @@
 
                 <div class="card-body">
 
-                    {% if d.画像 %}
-                    <div class="text-center mb-3">
-                        <img src="{{ d.画像 }}"
-                            class="img-fluid rounded border"
-                            alt="拾得物画像">
+                    <div class="border rounded d-flex align-items-center justify-content-center mb-3"
+                        style="height:250px;">
+                        {% if d.画像 !="" %}
+                            <img src="{{ d.画像 }}"
+                                class="img-fluid"
+                                alt="画像({{d.画像}})">
+                        {% else %}
+                            <span class="text-muted">画像なし</span>
+                        {% endif %}
                     </div>
-                    {% endif %}
 
                     <table class="table table-bordered">
 
-                        <tr>
+                        <!-- <tr>
                             <th width="35%">ID</th>
                             <td>{{ d.id }}</td>
-                        </tr>
+                        </tr> -->
 
                         <tr>
                             <th>大分類</th>
@@ -90,9 +93,9 @@
 
                         <thead>
                             <tr>
-                                <th>変更日時</th>
-                                <th>変更内容</th>
-                                <th>担当者</th>
+                                <th>日時</th>
+                                <th>状態</th>
+                                <th>対応者</th>
                             </tr>
                         </thead>
 
