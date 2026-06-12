@@ -50,3 +50,12 @@ class 拾得物管理状況(db.Model):
     拾得物ID = db.Column(db.Integer)
     変更日時 = db.Column(db.DateTime)
     変更内容 = db.Column(db.String(100))
+
+# 追加部分
+class 遺失物捜索依頼(db.Model):
+    __tablename__ = "遺失物捜索依頼"
+    ID = db.Column(db.Integer, primary_key=True)
+    ユーザID = db.Column(db.Integer)
+    遺失日 = db.Column(db.DateTime)
+    遺失物 = db.Column(db.String(50))
+    落とした場所 = db.Column(db.String(50))
