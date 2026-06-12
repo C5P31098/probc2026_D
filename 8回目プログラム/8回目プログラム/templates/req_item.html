@@ -19,22 +19,24 @@
             <div class="col mt-1">
                 <p>ここに拡張用の機能を実装してください</p>
             </div>
+            <form method="GET">
             <table>
-                <tr><td>遺失物分類</td><td>
+                <tr><td>拾得物分類</td><td>
                         {% if j %}
-                        <select name="拾得物分類ID">
+                        <select name="dept">
                         {% for i in j %}
-                        <option value="{{i.ID}}">{{i.大分類}}{{i.物品名}}</option>
+                        <option value="{{i.所属ID}}">{{i.所属名}}{{i.所属分類}}</option>
                         {% endfor %}
                         </select>
                         {% endif %}
-                </td></tr>
+                    </td></tr>
                 <tr><td>遺失場所</td><td><input type="text" name="place"></td></tr>
                 <tr><td>色</td><td><input type="text" name="color"></td></tr>
                 <tr><td>特徴</td><td><input type="text" name="features"></td></tr>
                 <tr><td>遺失者（ユーザ）</td><td><input type="text" name="user"></td></tr>
             </table>
             <button class="btn btn-success" type="submit">登録</button>
+            </form>
         </div>
     </div>
 </main>
