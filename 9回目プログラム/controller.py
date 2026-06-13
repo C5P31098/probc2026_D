@@ -244,6 +244,15 @@ def act_reg(d):
     db.session.commit()
 
 def req_item():
+    tmp = ユーザ(
+        拾得物分類ID = d["拾得物分類ID"],
+        遺失場所 = d["遺失場所"],
+        色 = d["色"],
+        特徴 = d["特徴"],
+        ユーザID = d["ユーザID"],
+    )
+    db.session.add(tmp)
+    db.session.commit()
     return render_template("req_item.html")
 
 def req_list():

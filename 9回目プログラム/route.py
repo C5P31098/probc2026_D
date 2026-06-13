@@ -96,7 +96,20 @@ def create_route(app):
 
     @app.route("/req_item", methods=["GET", "POST"])
     def req_item():
+        if request.method == "POST":
+            d = {
+                "拾得物分類ID":request.form.get("category"),
+                "遺失場所": request.form.get("place"),
+                "色": request.form.get("color"),
+                "特徴": request.form.get("features"),
+                "ユーザID":request.form.get("user"),
+            }
+            controller.req_item(d)
+            return redirect("/req_item") 
         return controller.req_item()
+
+    def new_func(d):
+        controller.req_item(d)
 
     @app.route("/req_list")
     def req_list():

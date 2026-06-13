@@ -16,17 +16,12 @@
         </div>
 
         <div class="row">
-            <div class="col mt-1">
-                <p>ここに拡張用の機能を実装してください</p>
-            </div>
             <form method="GET">
             <table>
                 <tr><td>拾得物分類</td><td>
                     <select name="category">
-                        {% for i in j %}
-                    <option value="{{i.ID}}">
-                        {{i.大分類}} - {{i.物品名}}
-                    </option>
+                    {% for i in j %}
+                    <option value="{{i.ID}}">{{i.大分類}} - {{i.物品名}}</option>
                     {% endfor %}
                     </select>
                 </td></tr>
