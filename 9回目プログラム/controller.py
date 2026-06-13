@@ -243,7 +243,7 @@ def act_reg(d):
     db.session.add(tmp)
     db.session.commit()
 
-def req_item():
+def req_item(d):
     tmp = ユーザ(
         拾得物分類ID = d["拾得物分類ID"],
         遺失場所 = d["遺失場所"],
