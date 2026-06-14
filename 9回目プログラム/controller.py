@@ -1,6 +1,6 @@
 from flask import render_template, jsonify
 from sqlalchemy import func
-from model import db, ユーザ, 所属, 拾得物, 拾得物分類, 拾得物管理状況
+from model import db, ユーザ, 所属, 拾得物, 拾得物分類, 拾得物管理状況 ,遺失物捜索依頼
 from datetime import datetime
 import os,re
 import openpyxl
