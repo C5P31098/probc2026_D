@@ -105,7 +105,7 @@ def create_route(app):
             }
             controller.req_item(d)
             return redirect("/req_item") 
-        return controller.req_item_form()
+        return controller.req_item()
 
     def new_func(d):
         controller.req_item(d)
