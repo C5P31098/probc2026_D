@@ -245,22 +245,14 @@ def act_reg(d):
 
 def req_item(d):
     tmp = 遺失物捜索依頼(
-        拾得物分類ID = d["拾得物分類ID"],
-        遺失場所 = d["遺失場所"],
-        色 = d["色"],
-        特徴 = d["特徴"],
         ユーザID = d["ユーザID"],
+        遺失日 = d["遺失日"],
+        遺失物 = d["遺失物"],
+        落した場所 = d["落とした場所"],
     )
     db.session.add(tmp)
     db.session.commit()
     return render_template("req_item.html")
-
-def req_item_form(errors=[]):
-    return render_template(
-        "req_item.html",
-        j=get_category_list(),
-        errors=errors
-    )
 
 def req_list():
     return render_template("req_list.html")

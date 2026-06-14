@@ -98,11 +98,10 @@ def create_route(app):
     def req_item():
         if request.method == "POST":
             d = {
-                "拾得物分類ID":request.form.get("category"),
-                "遺失場所": request.form.get("place"),
-                "色": request.form.get("color"),
-                "特徴": request.form.get("features"),
                 "ユーザID":request.form.get("user"),
+                "遺失日":request.form.get("time"),
+                "遺失物": request.form.get("object"),
+                "落とした場所": request.form.get("location"),
             }
             controller.req_item(d)
             return redirect("/req_item") 

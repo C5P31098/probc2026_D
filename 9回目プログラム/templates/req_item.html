@@ -18,17 +18,10 @@
         <div class="row">
             <form method="GET">
             <table>
-                <tr><td>拾得物分類</td><td>
-                    <select name="category">
-                    {% for i in j %}
-                    <option value="{{i.ID}}">{{i.大分類}} - {{i.物品名}}</option>
-                    {% endfor %}
-                    </select>
-                </td></tr>
-                <tr><td>遺失場所</td><td><input type="text" name="place"></td></tr>
-                <tr><td>色</td><td><input type="text" name="color"></td></tr>
-                <tr><td>特徴</td><td><input type="text" name="features"></td></tr>
-                <tr><td>遺失者（ユーザ）</td><td><input type="text" name="user"></td></tr>
+                <tr><td>ユーザID</td><td><input type="text" name="user"></td></tr>
+                <tr><td>遺失日</td><td><input type="text" name="time"></td></tr>
+                <tr><td>遺失物</td><td><input type="text" name="object"></td></tr>
+                <tr><td>落とした場所</td><td><input type="text" name="location"></td></tr>
             </table>
             <button class="btn btn-success" type="submit">登録</button>
             </form>
