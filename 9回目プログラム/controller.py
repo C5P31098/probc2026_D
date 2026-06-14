@@ -253,6 +253,9 @@ def req_item(d):
     db.session.add(tmp)
     db.session.commit()
 
+def req_item_form():
+    return render_template("req_item.html")
+
 def req_list():
     return render_template("req_list.html")
 
