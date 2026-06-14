@@ -252,7 +252,6 @@ def req_item(d):
     )
     db.session.add(tmp)
     db.session.commit()
-    return render_template("req_item.html")
 
 def req_list():
     return render_template("req_list.html")
