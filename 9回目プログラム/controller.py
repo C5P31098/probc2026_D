@@ -248,7 +248,7 @@ def req_item(d):
         ユーザID = d["ユーザID"],
         遺失日 = d["遺失日"],
         遺失物 = d["遺失物"],
-        落した場所 = d["落した場所"],
+        落した場所 = d["落とした場所"],
     )
     db.session.add(tmp)
     db.session.commit()
