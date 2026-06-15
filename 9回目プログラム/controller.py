@@ -223,7 +223,16 @@ def item_reg(d, f):
     n,ext = os.path.splitext(f.filename)
     fn = f"{tmp.ID}{ext}"
     tmp.画像 = fn
-    f.save(os.path.join("./static/img/", fn))
+
+    # 変更
+    path = os.path.dirname(__file__)
+
+    imgdir = os.path.join(path, "static", "img")
+
+    os.makedirs(imgdir, exist_ok=True)
+
+    f.save(os.path.join(imgdir, fn))
+    # f.save(os.path.join("./static/img/", fn))
     tmp2 = 拾得物管理状況(
         ユーザID = d["ユーザID"],
         拾得物ID = tmp.ID,

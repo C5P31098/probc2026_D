@@ -100,15 +100,22 @@ def create_route(app):
             d = {
                 "ユーザID":request.form.get("user"),
                 "遺失日":request.form.get("time"),
-                "遺失物": request.form.get("object"),
-                "落とした場所": request.form.get("location"),
+                "遺失物":request.form.get("object"),
+                "落とした場所":request.form.get("location"),
             }
+            errors = []
+            errors += controller.check_required(d, [
+                "ユーザID",
+                "遺失日",
+                "遺失物"
+            ])
+            errors += controller.check_text_values(d)
+            if errors:
+                return controller.req_item_form(errors)
             controller.req_item(d)
-            return redirect("/req_item") 
-        return controller.req_item_form()
+            return redirect("/req_item")
 
-    def new_func(d):
-        controller.req_item(d)
+        return controller.req_item_form()
 
     @app.route("/req_list")
     def req_list():

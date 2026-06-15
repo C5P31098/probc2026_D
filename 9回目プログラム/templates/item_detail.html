@@ -30,9 +30,10 @@
                     <div class="border rounded d-flex align-items-center justify-content-center mb-3"
                         style="height:250px;">
                         {% if d.画像 !="" %}
-                            <img src="{{ d.画像 }}"
-                                class="img-fluid"
-                                alt="画像({{d.画像}})">
+                            <img src="{{ url_for('static', filename='img/' + d.画像) }}"
+                            class="w-100 h-100"
+                            style="object-fit:contain;"
+                                alt="({{d.画像}})">
                         {% else %}
                             <span class="text-muted">画像なし</span>
                         {% endif %}
