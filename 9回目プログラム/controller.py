@@ -270,7 +270,23 @@ def req_item_form(errors=[]):
     )
 
 def req_list():
-    data = db.session.query(遺失物捜索依頼).all()
+    tmp = db.session.query(
+        遺失物捜索依頼,
+        ユーザ
+    ).filter(
+        遺失物捜索依頼.ユーザID == ユーザ.ID
+    ).all()
+
+    data = []
+
+    for i, j in tmp:
+        data.append({
+            "ID": i.ID,
+            "氏名": j.氏名,
+            "遺失日": i.遺失日,
+            "遺失物": i.遺失物,
+            "落とした場所": i.落とした場所,
+        })
 
     return render_template(
         "req_list.html",
