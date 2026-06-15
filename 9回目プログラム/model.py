@@ -58,4 +58,4 @@ class 遺失物捜索依頼(db.Model):
     ユーザID = db.Column(db.Integer)
     遺失日 = db.Column(db.DateTime)
     遺失物 = db.Column(db.String(50))
-    落とした場所 = db.Column(db.String(50))
+    落した場所 = db.Column(db.String(50))
