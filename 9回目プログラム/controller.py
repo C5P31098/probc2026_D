@@ -257,7 +257,12 @@ def req_item_form():
     return render_template("req_item.html")
 
 def req_list():
-    return render_template("req_list.html")
+    data = db.session.query(遺失物捜索依頼).all()
+
+    return render_template(
+        "req_list.html",
+        data=data
+    )
 
 def dl():
     return render_template("dl.html")
